@@ -30,9 +30,9 @@ $(function(){
 function UserLogin(name,pass){
 	$.ajax({
 		type: "POST",
-		url: "LoginValid.jsp"
+		url: "DealData.aspx",
 		data: "action=Login&d=" + new Date() + "&name=" + name + "&pass=" + pass,
-		success: function(){
+		success: function(data){
 			if (data == "True") {
                 window.location = "ChatMain.html";
             }
