@@ -29,8 +29,8 @@ $(function(){
 
 function UserLogin(name,pass){
 	$.ajax({
-		type:"POST",
-		url: ""
+		type: "POST",
+		url: "LoginValid.jsp"
 		data: "action=Login&d=" + new Date() + "&name=" + name + "&pass=" + pass,
 		success: function(){
 			if (data == "True") {
