@@ -33,7 +33,7 @@ function UserLogin(name,pass){
 		url: "DealData.aspx",
 		data: "action=Login&d=" + new Date() + "&name=" + name + "&pass=" + pass,
 		success: function(data){
-			if (data == "True") {
+			if (data == "true") {
                 window.location = "ChatMain.html";
             }
             else {
