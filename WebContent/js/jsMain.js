@@ -39,7 +39,7 @@ function InitFace(){
 function GetMessageList(){
 	$.ajax({
 		type: "POST",
-		url: "Main",
+		url: "jQueryChats",
 		data: "action=chatList&date=" + new Date(),
 		success: function(data){
 			$("#divContent").html(data);
@@ -51,7 +51,7 @@ function GetMessageList(){
 function GetOnlineList(){
 	$.ajax({
 		type: "POST",
-		url: "Main",
+		url: "jQueryChats",
 		data: "action=onlineList&date=" + new Date(),
 		success: function(data){
 			$("#divOnline").html(data);
@@ -61,7 +61,7 @@ function GetOnlineList(){
 function SendMessage(content){
 	$.ajax({
 		type: "POST",
-		url: "Main",
+		url: "jQueryChats",
 		data: "action=sendContent&date=" + new Date(),
 		success: function(data){
 			if(data == "true"){
