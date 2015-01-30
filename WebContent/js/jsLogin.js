@@ -31,7 +31,7 @@ function UserLogin(name,pass){
 	$.ajax({
 		type: "POST",
 		url: "jQueryChats",
-		data: "&name=" + name + "&pass=" + pass,
+		data: "action=login&name=" + name + "&pass=" + pass,
 		success: function(data){
 			if (data == "true") {
                 window.location = "ChatMain.html";

@@ -17,16 +17,29 @@ public class Main extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String userName = request.getParameter("name");
-		String userPass = request.getParameter("pass");
+		String action = request.getParameter("action");
 		PrintWriter out = response.getWriter();
-		if (userName.equals("") && userPass.equals("")) {
-			userName = "user name cannot be empty";
-			out.print(false);
+
+		if (action.equals("login")) {
+			String userName = request.getParameter("name");
+			String userPass = request.getParameter("pass");
+			if (userName.equals("") && userPass.equals("")) {
+				userName = "user name cannot be empty";
+				out.print(false);
+			} else {
+				userName = "hahah";
+				out.print(true);
+			}
+		} else if (action.equals("chatList")) {
+
+		} else if (action.equals("onlineList")) {
+
+		} else if (action.equals("sendContent")) {
+
 		} else {
-			userName = "hahah";
-			out.print(true);
+			out.print(false);
 		}
+
 		out.flush();
 		out.close();
 	}
