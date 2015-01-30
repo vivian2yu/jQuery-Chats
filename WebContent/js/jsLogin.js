@@ -30,7 +30,7 @@ $(function(){
 function UserLogin(name,pass){
 	$.ajax({
 		type: "POST",
-		url: "Main",
+		url: "jQueryChats",
 		data: "&name=" + name + "&pass=" + pass,
 		success: function(data){
 			if (data == "true") {
