@@ -22,11 +22,11 @@ public class Main extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String action = request.getParameter("action");
-		PrintWriter out = response.getWriter();
-		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=GBK");
 		request.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
 
+		String action = request.getParameter("action");
 		if (action.equals("login")) {
 			String userName = request.getParameter("name");
 			String userPass = request.getParameter("pass");
@@ -70,7 +70,7 @@ public class Main extends HttpServlet {
 		} else if (action.equals("sendContent")) {
 			String data = request.getParameter("date");
 			String strContent = request.getParameter("content");
-			String sendContent = USERNAME + "于" + data.toString() + "说：" + strContent;
+			String sendContent = USERNAME + " 于" + data.toString() + " 说：" + strContent;
 			List<String> contentList = MESSAGELIST;
 			if (contentList == null) {
 				contentList = new ArrayList<String>();
