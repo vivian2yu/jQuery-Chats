@@ -62,7 +62,7 @@ function SendMessage(content){
 	$.ajax({
 		type: "POST",
 		url: "jQueryChats",
-		data: "action=sendContent&date=" + new Date(),
+		data: "action=sendContent&date=" + new Date() + "&content=" + content,
 		success: function(data){
 			if(data == "true"){
 				GetMessageList();

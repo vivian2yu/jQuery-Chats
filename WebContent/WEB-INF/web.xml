@@ -1,5 +1,5 @@
 <web-app>
-  <display-name>/mm</display-name>
+  <display-name>/jQueryChats</display-name>
   <welcome-file-list>
     <welcome-file>Login.html</welcome-file>
   </welcome-file-list>
