@@ -1,4 +1,4 @@
-package Main;
+package main;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;

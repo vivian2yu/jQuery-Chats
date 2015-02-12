@@ -1,24 +1,39 @@
-<web-app>
-  <display-name>/jQueryChats</display-name>
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:javaee="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <javaee:display-name>/jQueryChats</javaee:display-name>
   <welcome-file-list>
     <welcome-file>Login.html</welcome-file>
   </welcome-file-list>
   
   <servlet>
     <servlet-name>jQueryChats</servlet-name>
-    <servlet-class>Main.Main</servlet-class>
+    <servlet-class>main.Main</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>jQueryChats</servlet-name>
     <url-pattern>/jQueryChats</url-pattern>
   </servlet-mapping>
   
+  <selvert>
+  	<selvert-name>checkCookie</selvert-name>
+  	<selvert-class>main.CheckCookie</selvert-class>
+  </selvert>
+  <servlet-mapping>
+  	<servlet-name>checkCookie</servlet-name>
+  	<url-pattern>/CheckCookie</url-pattern>
+  </servlet-mapping>
+  
+  <session-config>
+    <session-timeout>15</session-timeout>
+  </session-config>
+  
   <context-param>
-  	<param-name>breed</param-name>
-  	<param-value>Great</param-value>
+    <javaee:param-name>breed</javaee:param-name>
+    <javaee:param-value>Great</javaee:param-value>
   </context-param>
   
   <listener>
-  	<listener-class>Main.MyServletContextListener</listener-class>
+    <javaee:listener-class>Main.MyServletContextListener</javaee:listener-class>
   </listener>
+  
 </web-app>

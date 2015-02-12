@@ -1,4 +1,4 @@
-package Main;
+package main;
 
 import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionBindingListener;

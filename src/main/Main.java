@@ -1,4 +1,4 @@
-package Main;
+package main;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -43,6 +43,7 @@ public class Main extends HttpServlet {
 		} else {
 			out.println("welcome back!");
 		}
+		session.setMaxInactiveInterval(20 * 60);// 秒 DD里面是分钟 eg:15
 
 		// eg2
 		HttpSession sessionAlready = request.getSession(false);// 传入false，意为拿到一个已经有的session会话；如果没有则返回null
