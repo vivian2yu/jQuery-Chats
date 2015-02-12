@@ -8,6 +8,7 @@ import java.util.List;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class Main extends HttpServlet {
 
@@ -16,8 +17,54 @@ public class Main extends HttpServlet {
 	private static List<String> USERLIST;
 	private static String USERNAME = "";
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * javax.servlet.http.HttpServlet#doGet(javax.servlet.http.HttpServletRequest
+	 * , javax.servlet.http.HttpServletResponse)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		doPost(request, response);
+		// doPost(request, response);
+		PrintWriter out = response.getWriter();
+
+		Dog dog = (Dog) getServletContext().getAttribute("dog");
+		out.println("Dog's breed is: " + dog.getBreed());
+
+		out.println("test context attributes<br>");
+		// eg1
+		HttpSession session = request.getSession();
+		String sessionID = request.getParameter("jsessionid");
+
+		out.println("SessionId: " + sessionID);// sessionID是cookie放进去的，那Cookie是怎么放进去的？
+
+		if (session.isNew()) {
+			out.println("This is a new session");
+		} else {
+			out.println("welcome back!");
+		}
+
+		// eg2
+		HttpSession sessionAlready = request.getSession(false);// 传入false，意为拿到一个已经有的session会话；如果没有则返回null
+
+		if (sessionAlready == null) {
+			out.println("no session was avaliable");
+			out.println("make one.....");
+			sessionAlready = request.getSession();
+		} else {
+			out.println("there was a session");
+		}
+
+		synchronized (getServletContext()) {// 对上下文属性同步
+			// synchronized (session) { //对会话同步
+			//
+			// }
+			getServletContext().setAttribute("foo", "22");
+			getServletContext().setAttribute("bar", "42");
+
+			out.println(getServletContext().getAttribute("foo"));
+			out.println(getServletContext().getAttribute("bar"));
+		}
 
 	}
 
@@ -25,7 +72,7 @@ public class Main extends HttpServlet {
 		response.setContentType("text/html;charset=GBK");
 		request.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
-
+		request.getServletContext().getInitParameter("");
 		String action = request.getParameter("action");
 		if (action.equals("login")) {
 			String userName = request.getParameter("name");

@@ -3,6 +3,7 @@
   <welcome-file-list>
     <welcome-file>Login.html</welcome-file>
   </welcome-file-list>
+  
   <servlet>
     <servlet-name>jQueryChats</servlet-name>
     <servlet-class>Main.Main</servlet-class>
@@ -11,4 +12,13 @@
     <servlet-name>jQueryChats</servlet-name>
     <url-pattern>/jQueryChats</url-pattern>
   </servlet-mapping>
+  
+  <context-param>
+  	<param-name>breed</param-name>
+  	<param-value>Great</param-value>
+  </context-param>
+  
+  <listener>
+  	<listener-class>Main.MyServletContextListener</listener-class>
+  </listener>
 </web-app>
