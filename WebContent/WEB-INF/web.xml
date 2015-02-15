@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:javaee="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-  <javaee:display-name>/jQueryChats</javaee:display-name>
+<web-app>
+  <display-name>/JqueryChats</display-name>
   <welcome-file-list>
     <welcome-file>Login.html</welcome-file>
   </welcome-file-list>
@@ -14,13 +14,31 @@
     <url-pattern>/jQueryChats</url-pattern>
   </servlet-mapping>
   
-  <selvert>
-  	<selvert-name>checkCookie</selvert-name>
-  	<selvert-class>main.CheckCookie</selvert-class>
-  </selvert>
+  <servlet>
+    <servlet-name>CheckCookie</servlet-name>
+    <servlet-class>main.CheckCookie</servlet-class>
+  </servlet>
   <servlet-mapping>
-  	<servlet-name>checkCookie</servlet-name>
-  	<url-pattern>/CheckCookie</url-pattern>
+    <servlet-name>CheckCookie</servlet-name>
+    <url-pattern>/CheckCookie</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>CookieTest</servlet-name>
+    <servlet-class>main.CookieTest</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CookieTest</servlet-name>
+    <url-pattern>/CookieTest</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>CounterServ</servlet-name>
+    <servlet-class>main.CounterServ</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CounterServ</servlet-name>
+    <url-pattern>/CounterServ</url-pattern>
   </servlet-mapping>
   
   <session-config>
@@ -28,12 +46,11 @@
   </session-config>
   
   <context-param>
-    <javaee:param-name>breed</javaee:param-name>
-    <javaee:param-value>Great</javaee:param-value>
+    <param-name>breed</param-name>
+    <param-value>Great</param-value>
   </context-param>
   
   <listener>
-    <javaee:listener-class>Main.MyServletContextListener</javaee:listener-class>
+    <listener-class>main.MyServletContextListener</listener-class>
   </listener>
-  
 </web-app>
